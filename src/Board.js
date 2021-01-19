@@ -62,7 +62,7 @@
     },
 
 
-/*
+    /*
          _             _     _
      ___| |_ __ _ _ __| |_  | |__   ___ _ __ ___ _
     / __| __/ _` | '__| __| | '_ \ / _ \ '__/ _ (_)
@@ -79,12 +79,34 @@
     //
     // test if a specific row on this board contains a conflict
     hasRowConflictAt: function(rowIndex) {
-      return false; // fixme
+      var currentRow = this.get(rowIndex);
+      //console.log('this is currentRow ' + currentRow);
+      //console.log('this is row index ' + rowIndex);
+      var count = 0;
+      for (var i = 0; i < currentRow.length; i++) {
+        if (currentRow[i] === 1) {
+          count ++;
+          //console.log('this is i ' + i);
+        }
+      }
+      //console.log('this is count ' + count);
+      if (count > 1) {
+        //console.log('false');
+        return true;
+      } else {
+      //console.log('true');
+        return false;
+      }
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
-      return false; // fixme
+      for (var i = 0; i < this.get('n'); i++) {
+        if (this.hasRowConflictAt(i)) {
+          return true;
+        }
+      }
+      return false;
     },
 
 
@@ -94,12 +116,31 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false; // fixme
+      return false;
+      // var currentColumn = this.get(rowIndex[colIndex]);
+      // var count = 0;
+
+      // for (var i = 0; i < this.get('n'); i++) {
+      //   if (this.get[i][colIndex] === 1) {
+      //     count++;
+      //   }
+      // }
+      // if (count > 1) {
+      //   return true;
+      // } else {
+      //   return false;
+      // }
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
-      return false; // fixme
+      return false; //fix this
+      // for (var i = 0; i < this.get('n'); i++) {
+      //   if (this.hasColConflictAt(i)) {
+      //     return true;
+      //   }
+      // }
+      // return false;
     },
 
 
