@@ -116,24 +116,50 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      return false;
+      var row = this.get('n');
+      var count = 0;
+      for (var i = 0; i < row; i++) {
+        var thisRow = this.get(i);
+        if (thisRow[colIndex] === 1) {
+          count++;
+        }
+      }
+      if (count > 1) {
+        return true;
+      } else {
+        return false;
+      }
       // var currentColumn = this.get(rowIndex[colIndex]);
-      // var count = 0;
+      //  var count = 0;
 
-      // for (var i = 0; i < this.get('n'); i++) {
-      //   if (this.get[i][colIndex] === 1) {
-      //     count++;
+      //   for (var i = 0; i < this.get('n'); i++) {
+      //    var currentRow = this.get(i);
+      // console.log('this is i ' + i);
+      //   console.log(currentRow);
+      // console.log('this is colIndex ' + currentRow[colIndex]);
+      //     if (currentRow[colIndex] === 1) {
+      //      console.log('this is index of column with 1 ' + colIndex);
+      //      count++;
+
+
+      //     }
       //   }
-      // }
-      // if (count > 1) {
-      //   return true;
-      // } else {
-      //   return false;
-      // }
+      //  console.log('this is count ' + count);
+      //   if (count > 1 ) {
+      //    return true;
+      //  }
+      //  return false;
+
+
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
+      for (var i = 0; i < this.get('n'); i++) {
+        if (this.hasColConflictAt(i)) {
+          return true;
+        }
+      }
       return false; //fix this
       // for (var i = 0; i < this.get('n'); i++) {
       //   if (this.hasColConflictAt(i)) {
