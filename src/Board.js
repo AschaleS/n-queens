@@ -84,14 +84,11 @@
       for (var i = 0; i < currentRow.length; i++) {
         if (currentRow[i] === 1) {
           count ++;
-
         }
       }
       if (count > 1) {
-
         return true;
       } else {
-
         return false;
       }
     },
@@ -145,13 +142,12 @@
       var rowIndex = 0;
       var colIndex = majorDiagonalColumnIndexAtFirstRow;
       var count = 0;
-      console.log ('inside major diagonal ');
+
       for (; rowIndex < value && colIndex < value; rowIndex++, colIndex++) {
         if (colIndex >= 0) {
           var currentRow = this.get(rowIndex);
           if (currentRow[colIndex] === 1) {
             count++;
-            console.log('this is count at majordiagonal ' + count);
           }
         }
       }
